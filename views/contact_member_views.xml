@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<odoo>
+
+  <record id="contact_member_view_form" model="ir.ui.view">
+    <field name="name">contact.member.form</field>
+    <field name="model">contact.member</field>
+    <field name="arch" type="xml">
+        <form>
+            <!-- <header>
+                <button name="action_sold" type="object" string="Sold" states="new,offer_received"/>
+                <button name="action_sold" type="object" string="Sold" states="offer_accepted" class="oe_highlight"/>
+                <button name="action_cancel" type="object" string="Cancel" states="new,offer_received,offer_accepted"/>
+                <field name="state" widget="statusbar" statusbar_visible="new,offer_received,offer_accepted,sold"/>
+            </header> -->
+            <sheet>
+                <div class="oe_title">
+                    <h1>
+                        <field name="first_name" placeholder="First name"/>
+                    </h1>
+                </div>
+                <group>
+                    <group>
+                        <field name="last_name"/>
+                        <field name="job_title"/>
+                        <field name="company_name"/>
+                    </group>
+                    <group>
+                        <field name="email"/>
+                        <field name="phone_number"/>
+                        <field name="interest"/>
+                    </group>
+                </group>
+                <group>
+                    <group>
+                        <field name="address"/>
+                        <field name="city"/>
+                        <field name="state"/>
+                        <field name="postal_code"/>
+                        <field name="country"/>
+                    </group>
+                    <group>
+                        <field name="membership_category"/>
+                        <field name="stamp_date"/>
+                        <field name="transaction_id"/>
+                        <field name="amount"/>
+                        <field name="code"/>
+                    </group>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+  <record id="contacts_member_list_view_tree" model="ir.ui.view">
+    <field name="name">contact.member.tree</field>
+    <field name="model">contact.member</field>
+    <field name="arch" type="xml">
+      <tree string="Details">
+        <field name="first_name" />
+        <field name="last_name" />
+        <field name="job_title" />
+        <field name="company_name" />
+        <field name="membership_category" />
+      </tree>
+    </field>
+  </record>
+
+  <record id="contact_propery_action" model="ir.actions.act_window">
+    <field name="name">Members</field>
+    <field name="res_model">contact.member</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Define a new member
+      </p>
+      <p>
+        Use the 'Create' button to define a new member.
+      </p>
+      <p>
+        You can define the member type, the number of bedrooms, the price, etc.
+      </p>
+    </field>
+  </record>
+
+</odoo>
